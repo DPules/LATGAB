@@ -2,6 +2,7 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ranking Paskibraka</title>
 
     <style>
@@ -9,50 +10,71 @@
         font-family: "Segoe UI", sans-serif;
         background: #f5f6fa;
         margin: 0;
-        padding: 20px;
+        padding: 10px;
       }
 
       h1 {
         text-align: center;
         color: #800000;
-        margin-bottom: 20px;
+        font-size: 20px;
+      }
+
+      .refresh {
+        display: block;
+        margin: 10px auto;
+        padding: 8px 15px;
+        background: #800000;
+        color: white;
+        border: none;
+        border-radius: 6px;
       }
 
       .container {
         display: flex;
-        gap: 20px;
+        flex-direction: column;
+        gap: 15px;
       }
 
+      /* Card */
       .box {
-        flex: 1;
         background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
       }
 
       .box h2 {
         background: #800000;
         color: white;
-        padding: 12px;
         margin: 0;
+        padding: 10px;
+        font-size: 16px;
         text-align: center;
+      }
+
+      /* TABEL */
+      .table-wrapper {
+        overflow-x: auto;
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
+        min-width: 500px;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        font-size: 13px;
+        text-align: center;
       }
 
       th {
         background: #f1f1f1;
-        padding: 10px;
-        font-size: 14px;
       }
 
       td {
-        padding: 10px;
-        text-align: center;
         border-bottom: 1px solid #eee;
       }
 
@@ -71,69 +93,73 @@
       }
 
       .rank {
-        font-weight: bold;
         color: #800000;
+        font-weight: bold;
       }
 
       .nilai {
         font-weight: bold;
       }
 
-      .refresh {
-        display: block;
-        margin: 0 auto 20px;
-        padding: 10px 20px;
-        background: #800000;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-      }
+      /* DESKTOP MODE */
+      @media (min-width: 768px) {
+        .container {
+          flex-direction: row;
+        }
 
-      .refresh:hover {
-        background: #a00000;
+        .box {
+          width: 50%;
+        }
+
+        h1 {
+          font-size: 26px;
+        }
       }
     </style>
   </head>
 
   <body>
-    <h1>Ranking Latihan Gabungan</h1>
+    <h1>🏆 Ranking Paskibraka</h1>
 
-    <button class="refresh" onclick="loadData()">Refresh</button>
+    <button class="refresh" onclick="loadData()">🔄 Refresh</button>
 
     <div class="container">
       <div class="box">
         <h2>PUTRA</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Nama</th>
-              <th>Samapta</th>
-              <th>PBB</th>
-              <th>Kepribadian</th>
-              <th>Nilai</th>
-            </tr>
-          </thead>
-          <tbody id="putra"></tbody>
-        </table>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Nama</th>
+                <th>Samapta</th>
+                <th>PBB</th>
+                <th>Kepribadian</th>
+                <th>Nilai</th>
+              </tr>
+            </thead>
+            <tbody id="putra"></tbody>
+          </table>
+        </div>
       </div>
 
       <div class="box">
         <h2>PUTRI</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Nama</th>
-              <th>Samapta</th>
-              <th>PBB</th>
-              <th>Kepribadian</th>
-              <th>Nilai</th>
-            </tr>
-          </thead>
-          <tbody id="putri"></tbody>
-        </table>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Nama</th>
+                <th>Samapta</th>
+                <th>PBB</th>
+                <th>Kepribadian</th>
+                <th>Nilai</th>
+              </tr>
+            </thead>
+            <tbody id="putri"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
